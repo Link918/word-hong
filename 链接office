@@ -1,0 +1,44 @@
+import win32com.client as win32  
+from docx import Document  
+from openpyxl import Workbook  
+  
+# 创建Word应用程序对象  
+word_app = win32.Dispatch("Word.Application")  
+  
+# 创建新的Word文档  
+doc = word_app.Documents.Add()  
+  
+# 在文档中添加标题和段落  
+doc.AddTitle("My Word Document")  
+doc.AddContent("This is a sample Word document.")  
+  
+# 保存文档  
+doc.SaveAs("example.docx")  
+  
+# 关闭Word应用程序  
+word_app.Quit()  
+  
+# 创建Excel应用程序对象  
+excel_app = win32.Dispatch("Excel.Application")  
+  
+# 创建新的Excel工作簿  
+wb = excel_app.Workbooks.Add()  
+  
+# 在工作簿中添加工作表并命名  
+ws = wb.Worksheets[1]  
+ws.Name = "My Worksheet"  
+  
+# 在工作表中添加数据和格式  
+ws.Cells[1, 1].Value = "Name"  
+ws.Cells[1, 2].Value = "Age"  
+ws.Cells[2, 1].Value = "John"  
+ws.Cells[2, 2].Value = 25  
+ws.Cells[3, 1].Value = "Jane"  
+ws.Cells[3, 2].Value = 30  
+  
+# 保存工作簿并设置文件格式为Excel 2007或更高版本（.xlsx）  
+wb.SaveAs("example.xlsx")  
+wb.Close()  
+  
+# 关闭Excel应用程序  
+excel_app.Quit()
