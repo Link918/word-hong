@@ -1,0 +1,21 @@
+<?php  
+// 定义药量数组  
+$drugs = array(  
+    '药物A' => 10,  // 药量根据实际情况进行设置  
+    '药物B' => 20,  
+    '药物C' => 30  
+);  
+  
+// 获取用户选择的药品和加药量  
+$selectedDrug = $_POST['drug'];  
+$quantity = $_POST['quantity'];  
+  
+// 检查药品是否在药量数组中  
+if (isset($drugs[$selectedDrug])) {  
+    // 根据药量数组和用户输入的加药量计算总药量  
+    $totalQuantity = $drugs[$selectedDrug] + $quantity;  
+    echo "总药量为: " . $totalQuantity;  
+} else {  
+    echo "无效的药品选择！";  
+}  
+?>
