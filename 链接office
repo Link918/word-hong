@@ -28,7 +28,7 @@ wb = excel_app.Workbooks.Add()
 ws = wb.Worksheets[1]  
 ws.Name = "My Worksheet"  
   
-# 在工作表中添加数据和格式  
+# 在工作表中添加数据和格式    测试
 ws.Cells[1, 1].Value = "Name"  
 ws.Cells[1, 2].Value = "Age"  
 ws.Cells[2, 1].Value = "John"  
